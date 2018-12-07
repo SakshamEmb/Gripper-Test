@@ -1,0 +1,69 @@
+
+
+#include <Servo.h>
+
+Servo myservo;
+Servo myservo1;
+// create servo object to control a servo
+// twelve servo objects can be created on most boards
+
+int pos ;    // variable to store the servo position
+
+void setup() {
+  myservo.attach(10);
+  myservo1.attach(9);
+  Serial.begin(9600);// attaches the servo on pin 9 to the servo object
+}
+
+void loop() {
+
+
+  Serial.println("Gripper is ready");
+
+  delay(100);
+  
+  Serial.println("Gripper move ??");
+  
+
+
+  while(!Serial.available()){}
+
+  pos = Serial.parseInt();
+
+  if(pos == 0){
+    }
+
+  if(pos==1){
+
+    Serial.println("here 1");
+    myservo.write(70);
+   // myservo1.write(160);
+  }
+
+  if(pos==2){
+    Serial.println("here 2");
+    myservo.write(90);
+   // myservo1.write(90);
+  }
+
+  if(pos==3){
+    Serial.println("here 3");
+    myservo.write(100);
+    //myservo1.write(60);
+  }
+
+
+
+
+
+  
+
+  
+   
+  
+  /*for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                     // waits 15ms for the servo to reach the position
+  }*/
+}
